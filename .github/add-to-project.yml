@@ -1,0 +1,16 @@
+name: Add New Issues to Project Backlog
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add issue to project
+        uses: actions/add-to-project@v0.3.0
+        with:
+          project-url: https://github.com/orgs/<org-name>/projects/<project-number>
+          github-token: ${{ secrets.GITHUB_TOKEN }}
